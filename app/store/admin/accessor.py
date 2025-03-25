@@ -29,7 +29,7 @@ class AdminAccessor(BaseAccessor):
 
     async def create_admin(self, email: str, password: str) -> Admin:
         admin = Admin(
-            1,
+            self.app.database.next_admin_id,
             email=email,
             password = sha256(password.encode("utf-8")).hexdigest()
             )

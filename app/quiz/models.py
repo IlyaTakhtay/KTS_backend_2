@@ -8,10 +8,14 @@ class Theme:
 
 
 @dataclass
-class Question:
-    pass
+class Answer:
+    title: str
+    is_correct: bool
 
 
 @dataclass
-class Answer:
-    pass
+class Question:
+    id: int | None
+    theme_id: int | None
+    title: str
+    answers: list[Answer]
