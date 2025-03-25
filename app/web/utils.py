@@ -15,9 +15,20 @@ def json_response(data: dict | None = None, status: str = "ok") -> Response:
 
 
 def error_json_response(
-    http_status: int,
-    status: str = "error",
-    message: str | None = None,
-    data: dict | None = None,
+        http_status: int,
+        status: str = "error",
+        message: str | None = None,
+        data: dict | None = None,
 ):
-    raise NotImplementedError
+    if data is None:
+        data = {}
+    if message is None:
+        message = ''
+    return aiohttp_json_response(
+        status=http_status,
+        data={
+            "status": status,
+            "message": message,
+            "data": data,
+        }
+    )

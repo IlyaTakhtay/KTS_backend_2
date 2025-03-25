@@ -22,26 +22,26 @@ class VkApiAccessor(BaseAccessor):
         self.poller: Poller | None = None
         self.ts: int | None = None
 
-    async def connect(self, app: "Application"):
-        # TODO: добавить создание aiohttp ClientSession,
-        #  получить данные о long poll сервере с помощью метода groups.getLongPollServer
-        #  вызвать метод start у Poller
-        raise NotImplementedError
+#     async def connect(self, app: "Application"):
+#         # TODO: добавить создание aiohttp ClientSession,
+#         #  получить данные о long poll сервере с помощью метода groups.getLongPollServer
+#         #  вызвать метод start у Poller
+#         raise NotImplementedError
 
-    async def disconnect(self, app: "Application"):
-        # TODO: закрыть сессию и завершить поллер
-        raise NotImplementedError
+#     async def disconnect(self, app: "Application"):
+#         # TODO: закрыть сессию и завершить поллер
+#         raise NotImplementedError
 
-    @staticmethod
-    def _build_query(host: str, method: str, params: dict) -> str:
-        params.setdefault("v", API_VERSION)
-        return f"{urljoin(host, method)}?{urlencode(params)}"
+#     @staticmethod
+#     def _build_query(host: str, method: str, params: dict) -> str:
+#         params.setdefault("v", API_VERSION)
+#         return f"{urljoin(host, method)}?{urlencode(params)}"
 
-    async def _get_long_poll_service(self):
-        raise NotImplementedError
+#     async def _get_long_poll_service(self):
+#         raise NotImplementedError
 
-    async def poll(self):
-        raise NotImplementedError
+#     async def poll(self):
+#         raise NotImplementedError
 
-    async def send_message(self, message: Message) -> None:
-        raise NotImplementedError
+#     async def send_message(self, message: Message) -> None:
+#         raise NotImplementedError
